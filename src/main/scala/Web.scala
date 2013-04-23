@@ -6,8 +6,11 @@ import com.twitter.util.Future
 import java.net.InetSocketAddress
 import util.Properties
 
+import org.specs._
 import org.specs.Specification
 import org.specs.mock.Mockito
+import org.mockito.Mockito._
+import scala.reflect.ClassManifest
 
 object Web {
   def main(args: Array[String]) {
@@ -35,13 +38,13 @@ class Cities extends Service[HttpRequest, HttpResponse] {
 class WebTest extends Specification with Mockito {
   "Cities" should {
     "have content" in {
-      var request = mock(new HttpRequest)
+      var request = mock[HttpRequest]
 
-      var cities = Cities()
-      var f = cities.apply()
+      var cities = new Cities
+      var f = cities.apply(request)
 
       f onSuccess {
-        case response => reponse.getContent().readable() mustEqual true
+        case response => response.getContent().readable() mustEqual true
       }
     }
   }
