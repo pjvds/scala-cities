@@ -1,9 +1,11 @@
 {
+    "packages" : ["openjdk-7-jdk"]
     "custom steps" :
     {
         "get sbt repo" : "wget http://apt.typesafe.com/repo-deb-build-0002.deb",
         "install apt" : "sudo dpkg -i repo-deb-build-0002.deb",
         "apt-get update" : "sudo apt-get update",
-        "install sbt" : "sudo apt-get install sbt"
+        "install sbt" : "sudo apt-get install sbt",
+        "compile" : "sbt clean compile stage"
     }
 }
