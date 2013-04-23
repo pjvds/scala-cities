@@ -24,7 +24,7 @@ class Hello extends Service[HttpRequest, HttpResponse] {
     val response = Response()
     response.setStatusCode(200)
     response.setHeader("Content-Type", "application/json")
-    response.setContentString("{\"message\" :\"Hello World\"}")
+    response.setContentString("{\"cities\" :[\"Hello World\"]}")
     Future(response)
   }
 }
