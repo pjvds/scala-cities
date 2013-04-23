@@ -1,5 +1,5 @@
 {
-    "packages" : ["openjdk-7-jdk"]
+    "packages" : ["openjdk-7-jdk"],
     "custom steps" :
     {
         "get sbt repo" : "wget http://apt.typesafe.com/repo-deb-build-0002.deb",
