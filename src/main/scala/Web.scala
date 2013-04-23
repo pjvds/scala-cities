@@ -6,6 +6,9 @@ import com.twitter.util.Future
 import java.net.InetSocketAddress
 import util.Properties
 
+import org.specs.Specification
+import org.specs.mock.Mockito
+
 object Web {
   def main(args: Array[String]) {
     val port = Properties.envOrElse("PORT", "8080").toInt
@@ -26,5 +29,20 @@ class Cities extends Service[HttpRequest, HttpResponse] {
     response.setHeader("Content-Type", "application/json")
     response.setContentString("{\"cities\" :[\"San Francisco\", \"Amsterdam\",\"Berlin\",\"New York\"]}")
     Future(response)
+  }
+}
+
+class WebTest extends Specification with Mockito {
+  "Cities" should {
+    "have content" in {
+      var request = mock(new HttpRequest)
+
+      var cities = Cities()
+      var f = cities.apply()
+
+      f onSuccess {
+        case response => reponse.getContent().readable() mustEqual true
+      }
+    }
   }
 }
