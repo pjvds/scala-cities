@@ -2,8 +2,8 @@
     "packages" : ["openjdk-7-jdk"],
     "custom steps" :
     {
-        "get sbt repo" : "wget http://apt.typesafe.com/repo-deb-build-0002.deb",
-        "install apt" : "sudo dpkg -i repo-deb-build-0002.deb",
+        "get sbt repo" : "wget http://scalasbt.artifactoryonline.com/scalasbt/sbt-native-packages/org/scala-sbt/sbt//0.12.3/sbt.deb",
+        "install apt" : "sudo dpkg -i sbt.deb",
         "apt-get update" : "sudo apt-get update",
         "install sbt" : "sudo apt-get install sbt",
         "compile" : "sbt clean compile stage"
