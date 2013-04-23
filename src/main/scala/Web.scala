@@ -12,19 +12,19 @@ object Web {
     println("Starting on port:"+port)
     ServerBuilder()
       .codec(Http())
-      .name("hello-server")
+      .name("city-server")
       .bindTo(new InetSocketAddress(port))
-      .build(new Hello)
+      .build(new Cities)
     println("Started.")
   }
 }
 
-class Hello extends Service[HttpRequest, HttpResponse] {
+class Cities extends Service[HttpRequest, HttpResponse] {
   def apply(req: HttpRequest): Future[HttpResponse] = {
     val response = Response()
     response.setStatusCode(200)
     response.setHeader("Content-Type", "application/json")
-    response.setContentString("{\"cities\" :[\"San Francisco\", \"Amsterdam\"]}")
+    response.setContentString("{\"cities\" :[\"San Francisco\", \"Amsterdam\",\"Berlin\",\"New York\"]}")
     Future(response)
   }
 }
