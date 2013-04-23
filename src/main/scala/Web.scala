@@ -34,18 +34,3 @@ class Cities extends Service[HttpRequest, HttpResponse] {
     Future(response)
   }
 }
-
-class WebTest extends Specification with Mockito {
-  "Cities" should {
-    "have content" in {
-      var request = mock[HttpRequest]
-
-      var cities = new Cities
-      var f = cities.apply(request)
-
-      f onSuccess {
-        case response => response.getContent().readable() mustEqual true
-      }
-    }
-  }
-}
