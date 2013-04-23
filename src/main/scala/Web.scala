@@ -23,7 +23,8 @@ class Hello extends Service[HttpRequest, HttpResponse] {
   def apply(req: HttpRequest): Future[HttpResponse] = {
     val response = Response()
     response.setStatusCode(200)
-    response.setContentString("Hello World")
+    response.setHeader("Content-Type", "application/json")
+    response.setContentString("{\"message\" :\"Hello World\"}")
     Future(response)
   }
 }
