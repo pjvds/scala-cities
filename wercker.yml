@@ -2,6 +2,9 @@ box: pjvds/scala
 build:
   steps:
     - script:
+        name: set sbt
+        code: export SBT_OPTS="-XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:PermSize=256M -XX:MaxPermSize=512M"
+    - script:
         name: compile
         code: sbt clean compile stage
     - script:
