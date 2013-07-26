@@ -2,9 +2,6 @@ box: pjvds/scala
 build:
   steps:
     - script:
-        name: set SBT_OPTS
-        code: export SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:PermSize=256M -XX:MaxPermSize=512M"
-    - script:
         name: compile
         code: sbt clean compile stage
     - script:
