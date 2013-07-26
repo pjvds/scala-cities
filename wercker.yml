@@ -2,6 +2,9 @@ box: pjvds/scala
 build:
   steps:
     - script:
+        name: set SBT_OPTS
+        code: export SBT_OPTS=""
+    - script:
         name: compile
         code: sbt clean compile stage
     - script:
